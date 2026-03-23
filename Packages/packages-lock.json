@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.gaton.de-tach": {
+      "version": "https://github.com/andre-gp/De-Tach.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c8c1240895e254cfc5edfc239388929d46b5c07f"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.9",
       "depth": 0,
