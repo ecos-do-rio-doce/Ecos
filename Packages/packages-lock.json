@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.gaton.editor.scenehop": {
-      "version": "https://github.com/andre-gp/SceneHop.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "f6f65c279cf23d0ceaa930a5e0750c56da2854a2"
-    },
     "com.unity.ai.navigation": {
       "version": "2.0.9",
       "depth": 0,
