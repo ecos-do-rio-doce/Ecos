@@ -1,3 +1,4 @@
+using DeTach;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -8,13 +9,16 @@ namespace Ecos
 {
     public class FishingHook : MonoBehaviour
     {
-        [SerializeField] private Ease ease;
+        [SerializeField] private bool isReeling;
 
+        [SerializeField] private Ease ease;
         [SerializeField] private float barSize = 1000f;
         [SerializeField] private float hookSize = 100f;
         [SerializeField] private UnityEvent<float> onChangeHookSize;
-
+        [SerializeField] private float delayToStartReeling = 2f;
         [SerializeField] private float speed = 1;
+
+        [SerializeField] private IntVariable progressVariable;
 
         public float HookPosition => rectTransform.localPosition.x;
 
@@ -35,7 +39,22 @@ namespace Ecos
             rectTransform.sizeDelta = new Vector2(hookSize, rectTransform.sizeDelta.y);
             onChangeHookSize?.Invoke(hookSize);
 
-            MoveToRight();
+            if (isReeling)
+            {
+                MoveToRight();
+            }
+        }
+
+        public void SetIsReeling(bool isReeling)
+        {
+            this.isReeling = isReeling;
+
+            rectTransform.DOKill();
+
+            if (isReeling)
+            {
+                MoveToRight(true);
+            }
         }
 
         public void Move()
@@ -62,14 +81,19 @@ namespace Ecos
         }
 
         [Button]
-        public void MoveToRight()
+        public void MoveToRight(bool delay = false)
         {
             hookDirection = true;
             rectTransform.DOKill();
-            rectTransform.DOLocalMoveX(barSize - hookSize, speed).SetSpeedBased().SetEase(ease).OnComplete(() =>
+            var tween = rectTransform.DOLocalMoveX(barSize - hookSize, speed).SetSpeedBased().SetEase(ease).OnComplete(() =>
             {
                 MoveToLeft();
             });
+
+            if (delay)
+            {
+                tween.SetDelay(delayToStartReeling);
+            }
         }
         
         [Button]
@@ -82,9 +106,13 @@ namespace Ecos
 
         private void Update()
         {
+            if (!isReeling)
+                return;
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Fish caughtFish = FishingManager.Instance.TryToHookFish(HookPosition, hookSize);
+
                 if (caughtFish != null)
                 {
                     hookDirection = !hookDirection;
@@ -93,6 +121,7 @@ namespace Ecos
 
                     Move();
 
+                    progressVariable.Value += 1;
                 }             
             }
         }

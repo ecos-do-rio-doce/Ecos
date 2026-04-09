@@ -31,7 +31,7 @@ namespace Ecos
             {
                 if (worldFishing.DetectedMainActionButton())
                 {                    
-                    worldFishing.ChangeState(new CaughtFishState());
+                    worldFishing.ChangeState(new ReelingState());
 
                     return;
                 }
