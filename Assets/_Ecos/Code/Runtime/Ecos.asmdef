@@ -2,7 +2,9 @@
     "name": "Ecos",
     "rootNamespace": "Ecos",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:2c7f66a567de83f48a4403eda3fdcdb1",
+        "GUID:f8dc4b33ec8b394489ed36bad5a8cc4f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

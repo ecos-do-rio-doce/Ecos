@@ -1,7 +1,12 @@
+using DeTach;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using System.Collections;
+using System;
+using Random = UnityEngine.Random;
 
 namespace Ecos
 {
@@ -9,11 +14,21 @@ namespace Ecos
     {
         public static FishingManager Instance;
 
+        [SerializeField] private UnityEvent onStartFishing;
+        [SerializeField] private UnityEvent onFinishFishing;
+        [SerializeField] private UnityEvent delayedStopFishing;
+
         [SerializeField] private bool makeFishPersistent = true;
 
         [SerializeField] private Image bar;
 
         [SerializeField] private Fish fishPrefab;
+
+        [SerializeField] private BoolVariable isFishing;
+        [SerializeField] private IntVariable currentProgress;
+        [SerializeField] private IntVariable targetProgress;
+
+        public Action onFinishFishingAction;
 
         public float BarSize => bar.rectTransform.sizeDelta.x;
 
@@ -30,6 +45,26 @@ namespace Ecos
             {
                 Destroy(this.gameObject);
             }
+
+            currentProgress.Event.OnChange += OnChangeProgress;
+        }
+
+        private void OnChangeProgress(int progress)
+        {
+            if(progress >= targetProgress.Value)
+            {
+                isFishing.Value = false;
+
+                StartCoroutine(FinishCoroutine());               
+            }
+        }
+
+        IEnumerator FinishCoroutine()
+        {
+            yield return new WaitForSeconds(1f);
+
+            onFinishFishing?.Invoke();
+            onFinishFishingAction?.Invoke();
         }
 
         private void Start()
@@ -86,6 +121,17 @@ namespace Ecos
             float xPos = Random.Range(0f, BarSize - fish.FishSize);
 
             fish.RectTransform.localPosition = Vector3.right * xPos;
+        }
+
+        public void StartFishing()
+        {
+            currentProgress.Value = 0;
+            onStartFishing?.Invoke();
+        }
+
+        public void OnUpdateCurrentProgress(int currentProgress)
+        {
+
         }
     }
 }

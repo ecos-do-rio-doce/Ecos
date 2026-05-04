@@ -22,7 +22,7 @@ namespace Ecos
         {
 #if UNITY_EDITOR
             rectTransform = GetComponent<RectTransform>();
-            rectTransform.sizeDelta = new Vector2(fishSize, rectTransform.sizeDelta.y);
+            rectTransform.sizeDelta = new Vector2(fishSize, rectTransform.sizeDelta.y);            
 #endif
         }
     }
