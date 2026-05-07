@@ -113,10 +113,10 @@ TextureImporter:
       name: Boxbabyblue_0
       rect:
         serializedVersion: 2
-        x: 255
-        y: 2112
-        width: 6518
-        height: 2087
+        x: 238
+        y: 851
+        width: 6506
+        height: 3402
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
