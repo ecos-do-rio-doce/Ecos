@@ -17,10 +17,13 @@ namespace Ecos
         [SerializeField] private UnityEvent<float> onChangeHookSize;
         [SerializeField] private float delayToStartReeling = 2f;
         [SerializeField] private float speed = 1;
+        public float Speed { get => speed; set => speed = value; }
+
 
         [SerializeField] private IntVariable progressVariable;
 
         public float HookPosition => rectTransform.localPosition.x;
+
 
         Image image;
         RectTransform rectTransform;
@@ -74,7 +77,7 @@ namespace Ecos
         {
             hookDirection = false;
             rectTransform.DOKill();
-            rectTransform.DOLocalMoveX(0, speed).SetSpeedBased().SetEase(ease).OnComplete(() =>
+            rectTransform.DOLocalMoveX(0, Speed).SetSpeedBased().SetEase(ease).OnComplete(() =>
             {
                 MoveToRight();
             });
@@ -85,7 +88,7 @@ namespace Ecos
         {
             hookDirection = true;
             rectTransform.DOKill();
-            var tween = rectTransform.DOLocalMoveX(barSize - hookSize, speed).SetSpeedBased().SetEase(ease).OnComplete(() =>
+            var tween = rectTransform.DOLocalMoveX(barSize - hookSize, Speed).SetSpeedBased().SetEase(ease).OnComplete(() =>
             {
                 MoveToLeft();
             });

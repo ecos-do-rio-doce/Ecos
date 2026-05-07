@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450b65afd8e9e5b459d1b6ff07f7abd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Ecos::Ecos.WorldFishing
+  caughtFishParent: {fileID: 2442103264415041531}
+  caughtFishPrefab: {fileID: 3801707213185345775, guid: 961a9979a010eaa4c9abc2f3fd54bd71, type: 3}
   waterDetection: {fileID: 8634430612186672}
   setAnimatorParams: {fileID: 1531860627798272388}
   rangeToBite: {x: 3, y: 6}
@@ -738,6 +740,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3169089167609599040}
   m_SourcePrefab: {fileID: 100100000, guid: 0443cc964b88a764eb35c13a3a45a170, type: 3}
+--- !u!4 &2442103264415041531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1443430642607539393, guid: 0443cc964b88a764eb35c13a3a45a170, type: 3}
+  m_PrefabInstance: {fileID: 5337874418145262788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5103309902566932885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0443cc964b88a764eb35c13a3a45a170, type: 3}

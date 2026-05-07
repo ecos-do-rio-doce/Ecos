@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e2e3efeb4f9b34b94277c25f4c0aaf, type: 3}
+  m_Name: FishSprite
+  m_EditorClassIdentifier: gaton.de-tach.custom-classes::DeTach.SpriteVariable
+  OnChangeValue: {fileID: 5807710547930758356}
+  initialValue: {fileID: 21300000, guid: 8bd9ebb7268373d44b05c5cce9ed47e9, type: 3}
+  value: {fileID: 21300000, guid: 8bd9ebb7268373d44b05c5cce9ed47e9, type: 3}
+  documentation: 
+--- !u!114 &5807710547930758356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c4467fcf1e55349a6904222755e2bd, type: 3}
+  m_Name: VarEvent_FishSprite
+  m_EditorClassIdentifier: gaton.de-tach.custom-classes::DeTach.SpriteEvent
+  eventName: 
+  listeners: []
+  lastValue: {fileID: 0}
+  invokeVal: {fileID: 0}

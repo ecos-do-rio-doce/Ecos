@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3b332533c1a8848a99950ae591e96e, type: 3}
   m_Name: Tilapia
   m_EditorClassIdentifier: Ecos::Ecos.FishDef
+  fishName: "Til\xE1pia"
   fishSprite: {fileID: 21300000, guid: 3d403895776777a40b0d6cb01e4fead9, type: 3}
   size: 100
+  progressToCapture: 10
+  speed: 1000

@@ -27,12 +27,18 @@ namespace Ecos
         [SerializeField] private BoolVariable isFishing;
         [SerializeField] private IntVariable currentProgress;
         [SerializeField] private IntVariable targetProgress;
+        [SerializeField] private FloatVariable hookSpeed;
+        [SerializeField] private SpriteVariable fishSprite;
 
-        public Action onFinishFishingAction;
+        public Action<FishDef> onFinishFishingAction;
 
         public float BarSize => bar.rectTransform.sizeDelta.x;
 
+
         private List<Fish> instantiatedFishes = new List<Fish>();
+
+        FishDef currentFish;
+        public FishDef CurrentFish { get => currentFish; set => currentFish = value; }
 
 
         private void Awake()
@@ -64,7 +70,7 @@ namespace Ecos
             yield return new WaitForSeconds(1f);
 
             onFinishFishing?.Invoke();
-            onFinishFishingAction?.Invoke();
+            onFinishFishingAction?.Invoke(CurrentFish);
         }
 
         private void Start()
@@ -123,10 +129,19 @@ namespace Ecos
             fish.RectTransform.localPosition = Vector3.right * xPos;
         }
 
-        public void StartFishing()
+        public void StartFishing(FishDef def)
         {
+            CurrentFish = def;
             currentProgress.Value = 0;
+            targetProgress.Value = def.ProgressToCapture;
+            hookSpeed.Value = def.Speed;
+            fishSprite.Value = def.FishSprite;
             onStartFishing?.Invoke();
+        }
+
+        public void UpdateFishSprite(Sprite sprite)
+        {
+            instantiatedFishes.ForEach(fish => fish.GetComponentInChildren<Image>().sprite = sprite);
         }
 
         public void OnUpdateCurrentProgress(int currentProgress)

@@ -5,6 +5,9 @@ namespace Ecos
     [CreateAssetMenu(fileName = "Fish", menuName = "Ecos/Fish")]
     public class FishDef : ScriptableObject
     {
+        [SerializeField] private string fishName = "Peixe";
+        public string FishName { get => fishName; set => fishName = value; }
+
         [SerializeField] private Sprite fishSprite = null;
         public Sprite FishSprite { get => fishSprite; set => fishSprite = value; }
 

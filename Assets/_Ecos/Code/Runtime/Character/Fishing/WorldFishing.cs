@@ -9,6 +9,8 @@ namespace Ecos
     public class WorldFishing : MonoBehaviour
     {
         [Title("Components")]
+        [SerializeField] private Transform caughtFishParent;
+        [SerializeField] private SpriteRenderer caughtFishPrefab;
         [SerializeField] private WaterDetection waterDetection;
         [SerializeField] private SetAnimatorParams setAnimatorParams;
 
@@ -27,6 +29,7 @@ namespace Ecos
         [SerializeField] private UnityEvent<bool> showFishAppearedIndicator;
         public UnityEvent<bool> ShowFishAppearedIndicator { get => showFishAppearedIndicator; set => showFishAppearedIndicator = value; }
         
+        public FishSource CurrentFishSource { get; set; }
 
 
         State currentState;
@@ -60,6 +63,15 @@ namespace Ecos
         public bool DetectedMainActionButton()
         {
             return Input.GetMouseButtonDown(0);
+        }
+
+        public SpriteRenderer CreateCaughtFish(FishDef fishDef)
+        {
+            var instantiatedFish = Instantiate(caughtFishPrefab, caughtFishParent);
+
+            instantiatedFish.sprite = fishDef.FishSprite;
+
+            return instantiatedFish;
         }
     }
 }

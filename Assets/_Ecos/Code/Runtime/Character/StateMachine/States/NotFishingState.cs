@@ -19,8 +19,11 @@ namespace Ecos
         {
             if (worldFishing.DetectedMainActionButton())
             {
-                if (worldFishing.WaterDetection.IsInWater())
+                FishSource source = worldFishing.WaterDetection.TryToGetFishSource();
+
+                if(source != null)
                 {
+                    worldFishing.CurrentFishSource = source;
                     worldFishing.ChangeState(new WaitingToBiteState());
                 }
                 else

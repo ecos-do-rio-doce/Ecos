@@ -1,12 +1,15 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Ecos
 {
     public class CaughtFishState : State
     {
-        public float timeToReturn = 3f;
+        public float timeToReturn = 0.5f;
 
         bool hasFinishedDialog = false;
+
+        SpriteRenderer createdFish;
 
         public override void OnEnterState()
         {
@@ -14,10 +17,26 @@ namespace Ecos
 
             worldFishing.ShowFishAppearedIndicator?.Invoke(false);
             worldFishing.SetAnimatorState(SetAnimatorParams.FishingAnimState.CaughtFish);
+            worldFishing.GetComponentInParent<TopDownCharacterController>().transform.DORotate(new Vector3(0, 180, 0), 0.6f).SetDelay(0.2f);
 
-            var dialog = DialogManager.RequestDialog("Pegou {nomePeixe}!", "Você deseja devolver esse peixe?", "Devolver", "Não devolver");
-            dialog.OnConfirm += () => { Debug.Log("Devolveu!"); hasFinishedDialog = true; };
-            dialog.OnCancel += () => { Debug.Log("Não devolveu!"); hasFinishedDialog = true; };
+            createdFish = worldFishing.CreateCaughtFish(FishingManager.Instance.CurrentFish);
+            var targetScale = createdFish.transform.localScale;
+            createdFish.transform.localScale = Vector3.zero;
+            createdFish.transform.DOScale(targetScale, 0.5f);
+
+            var dialog = DialogManager.RequestDialog($"Pegou {FishingManager.Instance.CurrentFish.FishName}!", "Você deseja devolver esse peixe?", "Devolver", "Não devolver");
+
+            dialog.OnConfirm += () => 
+            { 
+                Debug.Log("Devolveu!"); 
+                hasFinishedDialog = true;                
+            };
+            
+            dialog.OnCancel += () => 
+            { 
+                Debug.Log("Não devolveu!"); 
+                hasFinishedDialog = true;
+            };
         }
 
         public override void Update()
@@ -29,6 +48,7 @@ namespace Ecos
 
             if(timeToReturn < 0f)
             {
+                createdFish.transform.DOScale(0f, 0.2f).SetDelay(0.4f).OnComplete(() => GameObject.Destroy(createdFish.gameObject));
                 worldFishing.ChangeState(new NotFishingState());
             }
         }

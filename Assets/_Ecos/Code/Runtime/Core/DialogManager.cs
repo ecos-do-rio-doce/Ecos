@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Ecos
@@ -58,6 +59,12 @@ namespace Ecos
                 cancelMessage);
 
             return dialog;
+        }
+
+        [Button]
+        public void DEBUG_ShowDialog()
+        {
+            RequestDialog("TestTitle", "TestDescription", "TestConfirm", "TestCancel");
         }
     }
 }

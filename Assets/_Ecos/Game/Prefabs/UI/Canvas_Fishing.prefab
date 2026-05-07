@@ -195,7 +195,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 842563903, guid: e0a41279380e62243a795bd48893874d, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -849,7 +849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5854206021681966117, guid: 975ea2694edde414ea46a4c1efca1289, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 261.704
       objectReference: {fileID: 0}
     - target: {fileID: 5854206021681966117, guid: 975ea2694edde414ea46a4c1efca1289, type: 3}
       propertyPath: m_LocalPosition.x
@@ -885,7 +885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5854206021681966117, guid: 975ea2694edde414ea46a4c1efca1289, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 5.886
       objectReference: {fileID: 0}
     - target: {fileID: 5854206021681966117, guid: 975ea2694edde414ea46a4c1efca1289, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3b332533c1a8848a99950ae591e96e, type: 3}
   m_Name: Bagre
   m_EditorClassIdentifier: Ecos::Ecos.FishDef
+  fishName: Bagre
   fishSprite: {fileID: 21300000, guid: 77de6e2df902baa40b39835513ca5622, type: 3}
   size: 100
+  progressToCapture: 2
+  speed: 1000

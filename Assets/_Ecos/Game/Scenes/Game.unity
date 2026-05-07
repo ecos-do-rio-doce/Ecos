@@ -330,6 +330,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7135424818761259817, guid: 4c64e565dd7329cf790d30d8eff53aa8, type: 3}
+--- !u!114 &400477986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400477978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8e78ca0bab89d4ca4510b2f926a9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ecos::Ecos.FishSource
+  fishesInSource:
+  - {fileID: 11400000, guid: ec487288ab0e95b49a9bb6928d1c1145, type: 2}
+  - {fileID: 11400000, guid: ab22a19136e68b44493e9e182f0697d5, type: 2}
+  - {fileID: 11400000, guid: f8362f9037f682f48b772a5ece53ae1f, type: 2}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +473,38 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &508530361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508530362}
+  m_Layer: 0
+  m_Name: '# Listeners #'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &508530362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508530361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1293744375}
+  m_Father: {fileID: 584301591}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &522054603 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7236278611131748787, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
@@ -560,6 +608,8 @@ MonoBehaviour:
   isFishing: {fileID: 11400000, guid: d2c6f836a71c3b546bdc1fccfc2e744e, type: 2}
   currentProgress: {fileID: 11400000, guid: 490df352e9f7fd4428bf964072bbec12, type: 2}
   targetProgress: {fileID: 11400000, guid: b9303b85b469324428d379c70277d292, type: 2}
+  hookSpeed: {fileID: 11400000, guid: 1c85f5d0140c2f7488bd8bfd480daafd, type: 2}
+  fishSprite: {fileID: 11400000, guid: 58f4a9ede916e1444831540030c9fc22, type: 2}
 --- !u!4 &584301591
 Transform:
   m_ObjectHideFlags: 0
@@ -572,7 +622,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 508530362}
   m_Father: {fileID: 2084574990}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &601376773
@@ -707,6 +758,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 91794887}
     m_Modifications:
     - target: {fileID: 2183099307623748480, guid: 5b4974f9f5f0f2d50a8e5b0e0bbc86f4, type: 3}
+      propertyPath: m_Name
+      value: FishSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183099307623748480, guid: 5b4974f9f5f0f2d50a8e5b0e0bbc86f4, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
@@ -769,6 +824,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2183099307623748480, guid: 5b4974f9f5f0f2d50a8e5b0e0bbc86f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 400477982}
+    - targetCorrespondingSourceObject: {fileID: 2183099307623748480, guid: 5b4974f9f5f0f2d50a8e5b0e0bbc86f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 400477986}
     - targetCorrespondingSourceObject: {fileID: 6517667732354548967, guid: 5b4974f9f5f0f2d50a8e5b0e0bbc86f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 836029913}
@@ -868,6 +926,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ceac3c6d094a44485cf1929b795db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp-firstpass::Gaton.Transitions.TransitionsCollection
+--- !u!1 &1293744374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1293744375}
+  - component: {fileID: 1293744376}
+  m_Layer: 5
+  m_Name: FishSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1293744375
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293744374}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.38645998, y: 0.38645998, z: 0.38645998}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 508530362}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 197.09375, y: 210.77469}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1293744376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293744374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0b7393e13eda647ab4c4d45d30f7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: gaton.de-tach.custom-classes::DeTach.SpriteListener
+  type: 0
+  deTachObject: {fileID: 11400000, guid: 58f4a9ede916e1444831540030c9fc22, type: 2}
+  Responses:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 584301590}
+        m_TargetAssemblyTypeName: Ecos.FishingManager, Ecos
+        m_MethodName: UpdateFishSprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1429001724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9069223317015727204, guid: 6b1c5e10530f088489aae21daa1767ca, type: 3}

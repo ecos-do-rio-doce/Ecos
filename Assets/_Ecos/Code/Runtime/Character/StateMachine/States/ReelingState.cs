@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Ecos
 {
@@ -9,12 +10,15 @@ namespace Ecos
         {
             worldFishing.ShowFishAppearedIndicator?.Invoke(false);
 
-            FishingManager.Instance.StartFishing();
+            var fishes = worldFishing.CurrentFishSource.FishesInSource;
+            FishDef fishDef = fishes[Random.Range(0, fishes.Count)];
+
+            FishingManager.Instance.StartFishing(fishDef);
 
             FishingManager.Instance.onFinishFishingAction += FinishedFishing;
         }
 
-        private void FinishedFishing()
+        private void FinishedFishing(FishDef fish)
         {
             worldFishing.ChangeState(new CaughtFishState());
         }

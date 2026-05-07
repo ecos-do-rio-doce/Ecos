@@ -1,3 +1,4 @@
+using PlasticPipe.PlasticProtocol.Messages;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,10 +28,11 @@ namespace Ecos
                 Reset();
             }
         }
-        public bool IsInWater()
+        public FishSource TryToGetFishSource()
         {
             TryDetectSurface(out RaycastHit hit, out bool isWater);
-            return isWater;
+
+            return hit.collider.GetComponent<FishSource>();
         }
 
         public bool TryDetectSurface(out RaycastHit hit, out bool isWater)
