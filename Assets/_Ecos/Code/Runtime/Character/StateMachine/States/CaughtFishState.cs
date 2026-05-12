@@ -27,16 +27,21 @@ namespace Ecos
             var dialog = DialogManager.RequestDialog($"Pegou {FishingManager.Instance.CurrentFish.FishName}!", "Você deseja devolver esse peixe?", "Devolver", "Não devolver");
 
             dialog.OnConfirm += () => 
-            { 
-                Debug.Log("Devolveu!"); 
-                hasFinishedDialog = true;                
+            {
+                OnSelectDialog(false);
             };
             
             dialog.OnCancel += () => 
-            { 
-                Debug.Log("Não devolveu!"); 
-                hasFinishedDialog = true;
+            {
+                OnSelectDialog(true);
             };
+        }
+
+        private void OnSelectDialog(bool capturedFish)
+        {
+            hasFinishedDialog = true;
+
+            PlayerScore.Instance.FinishCurrentAttempt(capturedFish);
         }
 
         public override void Update()

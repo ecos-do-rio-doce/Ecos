@@ -43,7 +43,7 @@ namespace Ecos
 
         private void Awake()
         {
-            if (Instance == null) 
+            if (Instance == null)
             {
                 Instance = this;
             }
@@ -57,11 +57,11 @@ namespace Ecos
 
         private void OnChangeProgress(int progress)
         {
-            if(progress >= targetProgress.Value)
+            if (progress >= targetProgress.Value)
             {
                 isFishing.Value = false;
 
-                StartCoroutine(FinishCoroutine());               
+                StartCoroutine(FinishCoroutine());
             }
         }
 
@@ -89,7 +89,7 @@ namespace Ecos
                 if (success)
                 {
                     float newPos;
-                    if(fish.RectTransform.localPosition.x < BarSize / 2)
+                    if (fish.RectTransform.localPosition.x < BarSize / 2)
                     {
                         newPos = Random.Range(BarSize / 2f, BarSize - fish.FishSize);
                     }
@@ -98,9 +98,10 @@ namespace Ecos
                         newPos = Random.Range(0, BarSize / 2f - fish.FishSize);
                     }
 
-                    fish.RectTransform.localPosition = new Vector3(newPos, fish.RectTransform.localPosition.y);
-
-                    Debug.Log(success);
+                    if (currentProgress.Value + 1 < targetProgress.Value)
+                    {
+                        fish.RectTransform.localPosition = new Vector3(newPos, fish.RectTransform.localPosition.y);
+                    }
 
                     return fish;
                 }
@@ -122,9 +123,15 @@ namespace Ecos
             instantiatedFishes.Add(fish);
         }
 
-        private void RandomizePosition(Fish fish)
+        private void RandomizePosition(Fish fish, bool firstTime = false)
         {
             float xPos = Random.Range(0f, BarSize - fish.FishSize);
+
+            if (firstTime && xPos < BarSize / 2f)
+            {
+                Debug.Log("Offsetting initial pos");
+                xPos = +(BarSize / 4f);
+            }
 
             fish.RectTransform.localPosition = Vector3.right * xPos;
         }

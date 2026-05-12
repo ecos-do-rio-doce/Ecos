@@ -13,6 +13,9 @@ namespace Ecos
             var fishes = worldFishing.CurrentFishSource.FishesInSource;
             FishDef fishDef = fishes[Random.Range(0, fishes.Count)];
 
+            PlayerScore.Instance.currentAttempt = new AttemptInfos(fishDef, worldFishing.CurrentFishSource.IsAllowed(fishDef));
+
+
             FishingManager.Instance.StartFishing(fishDef);
 
             FishingManager.Instance.onFinishFishingAction += FinishedFishing;

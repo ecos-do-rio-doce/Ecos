@@ -1,0 +1,48 @@
+using Sirenix.OdinInspector;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Ecos
+{
+    public class PlayerScore : MonoBehaviour
+    {
+        public static PlayerScore Instance;
+
+        [Title("Scoring System")]
+        [SerializeField] int scorePerPerfectCatch = 30;
+        [SerializeField] float modifierPerCorrectFish = 1f;
+        [SerializeField] float modifierPerWrongFish = 0.5f;
+
+        [Title("Debug")]
+        public List<FishDef> correctFishes;
+        public List<FishDef> wrongFishes;
+
+        public List<AttemptInfos> allAttempts = new List<AttemptInfos>();
+
+        public AttemptInfos currentAttempt;
+
+        private void Awake()
+        {
+            if(Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+
+            allAttempts = new List<AttemptInfos>();
+            
+        }
+
+        public void FinishCurrentAttempt(bool capturedFish)
+        {
+            currentAttempt.wasCaptured = capturedFish;
+
+            allAttempts.Add(currentAttempt);
+
+            currentAttempt = null;
+        }
+    }
+}

@@ -80,6 +80,7 @@ namespace Ecos
             rectTransform.DOKill();
             rectTransform.DOLocalMoveX(0, Speed).SetSpeedBased().SetEase(ease).OnComplete(() =>
             {
+                PlayerScore.Instance.currentAttempt.missedTimings += 1;
                 MoveToRight();
             });
         }
@@ -91,6 +92,7 @@ namespace Ecos
             rectTransform.DOKill();
             var tween = rectTransform.DOLocalMoveX(barSize - hookSize, Speed).SetSpeedBased().SetEase(ease).OnComplete(() =>
             {
+                PlayerScore.Instance.currentAttempt.missedTimings += 1;
                 MoveToLeft();
             });
 
@@ -126,7 +128,11 @@ namespace Ecos
                     Move();
 
                     progressVariable.Value += 1;
-                }             
+                }
+                else
+                {
+                    PlayerScore.Instance.currentAttempt.wrongClicks += 1;
+                }
             }
         }
     }

@@ -62,7 +62,7 @@ namespace Ecos
 
         public bool DetectedMainActionButton()
         {
-            return Input.GetMouseButtonDown(0);
+            return Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space);
         }
 
         public SpriteRenderer CreateCaughtFish(FishDef fishDef)
