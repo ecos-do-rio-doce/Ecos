@@ -4,7 +4,7 @@ namespace Ecos
 {
     public class FailedState : State
     {
-        public float FAIL_DURATION = 1f;
+        public float FAIL_DURATION = 0f;
 
         public override void OnEnterState()
         {
