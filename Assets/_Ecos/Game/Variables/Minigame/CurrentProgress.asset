@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: gaton.de-tach.custom-classes::DeTach.IntEvent
   eventName: 
   listeners: []
-  lastValue: 0
+  documentation: 
+  printInvokeCalls: 0
   invokeVal: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -32,3 +33,4 @@ MonoBehaviour:
   initialValue: 0
   value: 0
   documentation: 
+  printValueChanges: 0

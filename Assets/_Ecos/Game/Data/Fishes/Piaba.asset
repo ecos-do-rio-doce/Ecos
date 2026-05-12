@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a3b332533c1a8848a99950ae591e96e, type: 3}
-  m_Name: Tucunare
+  m_Name: Piaba
   m_EditorClassIdentifier: Ecos::Ecos.FishDef
-  fishName: "Tucunar\xE9"
-  fishSprite: {fileID: 21300000, guid: a9669fbfa4a31c543949ae815a1f185b, type: 3}
+  fishName: "Piab\xE1"
+  fishSprite: {fileID: 21300000, guid: 66ecb7b5995c5224da9963575b611daf, type: 3}
   size: 100
   progressToCapture: 10
   speed: 1000

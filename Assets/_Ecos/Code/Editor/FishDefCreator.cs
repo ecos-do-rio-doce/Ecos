@@ -23,15 +23,20 @@ public static class FishDefCreator
             string assetName = SanitizeFileName(selected.name);
             string assetPath = $"{TargetFolder}/{assetName}.asset";
 
-            // Skip if already exists
-            if (AssetDatabase.LoadAssetAtPath<FishDef>(assetPath) != null)
-            {
-                Debug.Log($"FishDef already exists: {assetPath}");
-                continue;
-            }
+            FishDef fishDef;
 
-            FishDef fishDef = ScriptableObject.CreateInstance<FishDef>();
-            fishDef.name = assetName;
+            fishDef = AssetDatabase.LoadAssetAtPath<FishDef>(assetPath);
+            bool exists = fishDef != null;
+
+            if (exists)
+            {
+                Debug.Log($"FishDef already exists: {assetPath}", fishDef);
+            }
+            else
+            {
+                fishDef = ScriptableObject.CreateInstance<FishDef>();
+                fishDef.name = assetName;
+            }
 
             if (selected is Texture2D texture)
             {
@@ -49,9 +54,16 @@ public static class FishDefCreator
             }
 
 
-            AssetDatabase.CreateAsset(fishDef, assetPath);
-            Debug.Log($"Created FishDef: {assetPath}", fishDef);
-            EditorGUIUtility.PingObject(fishDef);
+            if (!exists)
+            {
+                AssetDatabase.CreateAsset(fishDef, assetPath);
+                Debug.Log($"Created FishDef: {assetPath}", fishDef);
+                EditorGUIUtility.PingObject(fishDef);
+            }
+            else
+            {
+                EditorUtility.SetDirty(fishDef);
+            }
         }
 
         AssetDatabase.SaveAssets();

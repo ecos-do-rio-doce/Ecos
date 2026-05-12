@@ -18,5 +18,11 @@ namespace Ecos
         public int ProgressToCapture { get => progressToCapture; set => progressToCapture = value; }
         [SerializeField] private float speed = 1000f;
         public float Speed { get => speed; set => speed = value; }
+
+        [SerializeField] int pointsValue;
+        public int PointsValue { get => pointsValue; set => pointsValue = value; }
+
+        [SerializeField] float penaltyWhenWrongChoice = 0.5f;
+        public float PenaltyWhenWrongChoice { get => penaltyWhenWrongChoice; set => penaltyWhenWrongChoice = value; }
     }
 }
