@@ -56,6 +56,7 @@ namespace Ecos
 
             if (isReeling)
             {
+                rectTransform.localPosition = new Vector3(0, rectTransform.localPosition.y, rectTransform.localPosition.z);
                 MoveToRight(true);
             }
         }
