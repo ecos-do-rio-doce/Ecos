@@ -843,7 +843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &720081732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58dc27dcce1373347844639a0da872e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Ecos::Ecos.PlayerScore
-  maximumCatchesPerDay: 1
+  maximumCatchesPerDay: 5
   scorePerPerfectCatch: 30
   modifierPerCorrectFish: 1
   modifierPerWrongFish: 0.5
@@ -1836,6 +1836,58 @@ PrefabInstance:
     - target: {fileID: 601039714860458238, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015889593245497439, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: easePeriod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015889593245497439, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: endScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015889593245497439, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: endScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015889593245497439, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: endScale.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015889593245497439, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: growDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488430077003537703, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488430077003537703, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488430077003537703, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488430077003537703, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823731947981654425, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823731947981654425, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823731947981654425, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823731947981654425, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7267588347369967342, guid: 87d72d208403e5f4789635709e45ec5d, type: 3}
       propertyPath: m_Name
