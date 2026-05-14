@@ -12,6 +12,7 @@ namespace Ecos
         [SerializeField] int scorePerPerfectCatch = 30;
         [SerializeField] float modifierPerCorrectFish = 1f;
         [SerializeField] float modifierPerWrongFish = 0.5f;
+        [SerializeField] AnimationCurve missedTimingRewardCurve;
 
         [Title("Debug")]
         public List<FishDef> correctFishes;
@@ -20,6 +21,11 @@ namespace Ecos
         public List<AttemptInfos> allAttempts = new List<AttemptInfos>();
 
         public AttemptInfos currentAttempt;
+
+        public int ScorePerPerfectCatch { get => scorePerPerfectCatch; set => scorePerPerfectCatch = value; }
+        public float ModifierPerCorrectFish { get => modifierPerCorrectFish; set => modifierPerCorrectFish = value; }
+        public float ModifierPerWrongFish { get => modifierPerWrongFish; set => modifierPerWrongFish = value; }
+        public AnimationCurve MissedTimingRewardCurve => missedTimingRewardCurve;
 
         private void Awake()
         {
@@ -32,7 +38,7 @@ namespace Ecos
                 Destroy(this.gameObject);
             }
 
-            allAttempts = new List<AttemptInfos>();
+            //allAttempts = new List<AttemptInfos>();
             
         }
 
