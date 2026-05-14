@@ -115,7 +115,7 @@ namespace Ecos
             if (!isReeling)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 Fish caughtFish = FishingManager.Instance.TryToHookFish(HookPosition, hookSize);
 

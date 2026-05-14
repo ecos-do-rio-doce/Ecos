@@ -32,7 +32,14 @@ namespace Ecos
         {
             TryDetectSurface(out RaycastHit hit, out bool isWater);
 
-            return hit.collider.GetComponent<FishSource>();
+            if(isWater && hit.collider != null)
+            {
+                return hit.collider.GetComponent<FishSource>();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public bool TryDetectSurface(out RaycastHit hit, out bool isWater)

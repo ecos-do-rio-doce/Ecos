@@ -17,3 +17,4 @@ MonoBehaviour:
   size: 100
   progressToCapture: 3
   speed: 1000
+  pointsValue: 100

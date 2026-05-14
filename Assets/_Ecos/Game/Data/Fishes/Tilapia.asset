@@ -15,5 +15,6 @@ MonoBehaviour:
   fishName: "Til\xE1pia"
   fishSprite: {fileID: 21300000, guid: 3d403895776777a40b0d6cb01e4fead9, type: 3}
   size: 100
-  progressToCapture: 10
+  progressToCapture: 3
   speed: 1000
+  pointsValue: 100

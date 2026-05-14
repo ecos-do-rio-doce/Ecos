@@ -154,7 +154,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -120.172, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4455943
 MonoBehaviour:
@@ -203,14 +203,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 16
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
+  m_wordWrappingRatios: 0
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58dc27dcce1373347844639a0da872e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Ecos::Ecos.PlayerScore
+  maximumCatchesPerDay: 1
   scorePerPerfectCatch: 30
   modifierPerCorrectFish: 1
   modifierPerWrongFish: 0.5
@@ -1255,24 +1256,33 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  wrongClicksRewardCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0
+      value: 200
+      inSlope: -10
+      outSlope: -10
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 20
+      value: 0
+      inSlope: 0.5493868
+      outSlope: 0.5493868
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4937026
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   correctFishes: []
   wrongFishes: []
-  allAttempts:
-  - fishDef: {fileID: 11400000, guid: d5741e9fbfcf5e64d9667328c320fdc3, type: 2}
-    shouldBeCaptured: 0
-    wasCaptured: 0
-    missedTimings: 0
-    wrongClicks: 0
-  - fishDef: {fileID: 11400000, guid: ab22a19136e68b44493e9e182f0697d5, type: 2}
-    shouldBeCaptured: 1
-    wasCaptured: 1
-    missedTimings: 0
-    wrongClicks: 0
-  - fishDef: {fileID: 11400000, guid: ec487288ab0e95b49a9bb6928d1c1145, type: 2}
-    shouldBeCaptured: 1
-    wasCaptured: 0
-    missedTimings: 0
-    wrongClicks: 0
+  allAttempts: []
   currentAttempt:
     fishDef: {fileID: 0}
     shouldBeCaptured: 0
@@ -1409,15 +1419,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  startDelay: 1
-  lineDelay: 1
-  numberTweenDuration: 2
-  openFadeDuration: 1
+  startDelay: 2
+  lineDelay: 0.6
+  countTweenDuration: 0.4
+  pointsTweenDuration: 1.5
   playOnEnable: 0
-  leaderWidth: 28
+  labelColumnWidth: 28
+  valueColumnWidth: 10
   useThousandsSeparator: 1
-  leaderCharacter: '-'
-  missedTimingCurveMultiplier: 1
+  useTabsBetweenColumns: 1
 --- !u!1 &1505919045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,7 +1532,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -725.927, y: -212.739}
+  m_SizeDelta: {x: -900.837, y: -212.739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &2029773088
 CanvasGroup:

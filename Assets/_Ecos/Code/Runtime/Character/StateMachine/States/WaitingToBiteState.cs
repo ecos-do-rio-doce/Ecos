@@ -13,7 +13,7 @@ namespace Ecos
 
         public override void OnEnterState()
         {
-            Debug.Log("Waiting for fish");
+            //Debug.Log("Waiting for fish");
             worldFishing.SetCanWalk = false;
             worldFishing.SetAnimatorState(SetAnimatorParams.FishingAnimState.WaitingToBite);
             ResetAppearFishTime();
@@ -22,7 +22,7 @@ namespace Ecos
         private void ResetAppearFishTime()
         {
             auxTime = Random.Range(RANGE_TO_BITE.x, RANGE_TO_BITE.y);
-            Debug.Log($"Looking for fish, time to get: {auxTime}");
+            //Debug.Log($"Looking for fish, time to get: {auxTime}");
         }
 
         public override void Update()

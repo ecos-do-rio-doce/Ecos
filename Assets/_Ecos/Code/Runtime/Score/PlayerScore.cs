@@ -8,11 +8,15 @@ namespace Ecos
     {
         public static PlayerScore Instance;
 
+        [Title("Values")]
+        [SerializeField] int maximumCatchesPerDay = 4;
+
         [Title("Scoring System")]
         [SerializeField] int scorePerPerfectCatch = 30;
         [SerializeField] float modifierPerCorrectFish = 1f;
         [SerializeField] float modifierPerWrongFish = 0.5f;
         [SerializeField] AnimationCurve missedTimingRewardCurve;
+        [SerializeField] AnimationCurve wrongClicksRewardCurve;
 
         [Title("Debug")]
         public List<FishDef> correctFishes;
@@ -26,6 +30,7 @@ namespace Ecos
         public float ModifierPerCorrectFish { get => modifierPerCorrectFish; set => modifierPerCorrectFish = value; }
         public float ModifierPerWrongFish { get => modifierPerWrongFish; set => modifierPerWrongFish = value; }
         public AnimationCurve MissedTimingRewardCurve => missedTimingRewardCurve;
+        public AnimationCurve WrongClicksRewardCurve => wrongClicksRewardCurve;
 
         private void Awake()
         {
@@ -49,6 +54,14 @@ namespace Ecos
             allAttempts.Add(currentAttempt);
 
             currentAttempt = null;
+
+
+            if(allAttempts.Count >= maximumCatchesPerDay)
+            {
+                Debug.Log("Finish");
+
+                FindFirstObjectByType<EndgameScreen>().Play();
+            }
         }
     }
 }

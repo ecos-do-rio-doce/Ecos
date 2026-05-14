@@ -15,7 +15,6 @@ MonoBehaviour:
   fishName: "Tra\xEDra"
   fishSprite: {fileID: 21300000, guid: 6e95f21382e4d7b4ab5a4f661048d357, type: 3}
   size: 100
-  progressToCapture: 10
+  progressToCapture: 3
   speed: 1000
-  pointsValue: 0
-  penaltyWhenWrongChoice: 0.5
+  pointsValue: 100

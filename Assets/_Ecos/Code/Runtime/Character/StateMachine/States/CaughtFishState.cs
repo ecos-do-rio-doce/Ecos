@@ -26,6 +26,8 @@ namespace Ecos
 
             var dialog = DialogManager.RequestDialog($"Pegou {FishingManager.Instance.CurrentFish.FishName}!", "Você deseja devolver esse peixe?", "Devolver", "Não devolver");
 
+            Debug.Log($"Should release? {!worldFishing.CurrentFishSource.IsAllowed(FishingManager.Instance.CurrentFish)}");
+
             dialog.OnConfirm += () => 
             {
                 OnSelectDialog(false);
